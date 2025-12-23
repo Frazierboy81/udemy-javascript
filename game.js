@@ -17,7 +17,7 @@ let questions = [
         answer: 1
     },
     {
-        question: "What is the correct syntax for referring to an external script called 'xxx.js?",
+        question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
         choice1: "<script href='xxx.js>'",
         choice2: "<script name='xxx.js'>",
         choice3: "<script src='xxx.js'>",
@@ -72,9 +72,16 @@ choices.forEach(choice => {
         const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
         
         selectedChoice.parentElement.classList.add(classToApply);
+
+        setTimeout( () => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestion();
+            
+        }, 1000);
         
         
-        getNewQuestion();
+        
+        
         
     })
 })
